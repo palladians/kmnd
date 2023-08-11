@@ -1,0 +1,10 @@
+{
+  "extends": "@tsconfig/strictest/tsconfig.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "jsx": "react",
+    "module": "esnext",
+    "moduleResolution": "nodenext"
+  },
+  "include": ["src"]
+}

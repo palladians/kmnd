@@ -7,10 +7,10 @@ import App from './app.js'
 meow(
   `
 	Usage
-	  $ ccmd
+	  $ kmnd
 
 	Examples
-	  $ ccmd
+	  $ kmnd
 `,
   {
     importMeta: import.meta

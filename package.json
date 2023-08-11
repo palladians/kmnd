@@ -1,5 +1,5 @@
 {
-  "name": "ccmd",
+  "name": "kmnd",
   "version": "0.0.1",
   "bin": "dist/cli.js",
   "type": "module",

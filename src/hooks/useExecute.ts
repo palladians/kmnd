@@ -47,6 +47,8 @@ export const useExecute = () => {
           setOutput(stdout)
         } catch (error: any) {
           setError(error.message)
+        } finally {
+          setQuery('')
         }
         return setRoute(Route.OVERVIEW)
     }

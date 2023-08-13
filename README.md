@@ -2,6 +2,7 @@
 
 ![Module type: ESM](https://img.shields.io/badge/module%20type-esm-brightgreen)
 ![CI Status](https://github.com/palladians/kmnd/actions/workflows/ci.yml/badge.svg)
+[![Twitter](https://img.shields.io/twitter/url/https/twitter.com/palladians_xyz.svg?style=social&label=Follow%20%40Palladians)](https://twitter.com/palladians_xyz)
 
 Your terminal's missing command palette.
 
@@ -17,7 +18,7 @@ Your terminal's missing command palette.
 - [x] Read annotations for `scripts`.
 - [x] Filter commands with text input.
 - [x] Conventional commit command.
-- [x] Create app from boilerplates (Next.js, Remix, Vite, CRA).
+- [x] Create app from boilerplates (Next.js, Remix, Vite).
 - [ ] Tools for other ecosystems than TypeScript.
 - [ ] Persistent settings with `~/.kmnd`.
 - [ ] Custom commands and local automation with `~/.kmnd`.

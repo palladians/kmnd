@@ -7,7 +7,7 @@ import { createAppCommands } from '../commands/create-app'
 it('renders overview options count', () => {
   const { lastFrame } = render(<OverviewRoute />)
   const frame = lastFrame()
-  expect(frame).toContain('Results (9)')
+  expect(frame).toContain('Results (8)')
 })
 
 it('renders overview commands search', () => {

@@ -14,6 +14,7 @@ export const useExecute = () => {
     setExecutableCommand,
     setOutput,
     setRoute,
+    setQuery,
     conventionalCommitMessage
   } = useAppStore(
     (state) => ({
@@ -23,6 +24,7 @@ export const useExecute = () => {
       setExecutableCommand: state.setExecutableCommand,
       setOutput: state.setOutput,
       setRoute: state.setRoute,
+      setQuery: state.setQuery,
       conventionalCommitMessage: state.conventionalCommitMessage
     }),
     shallow
@@ -68,6 +70,7 @@ export const useExecute = () => {
         } catch (error: any) {
           setError(error.message)
         } finally {
+          setQuery('')
           setRoute(Route.OVERVIEW)
         }
       }

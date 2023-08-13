@@ -13,7 +13,8 @@ export const useExecute = () => {
     setExecuting,
     setExecutableCommand,
     setOutput,
-    setRoute
+    setRoute,
+    conventionalCommitMessage
   } = useAppStore(
     (state) => ({
       executableCommand: state.executableCommand,
@@ -21,20 +22,31 @@ export const useExecute = () => {
       setExecuting: state.setExecuting,
       setExecutableCommand: state.setExecutableCommand,
       setOutput: state.setOutput,
-      setRoute: state.setRoute
+      setRoute: state.setRoute,
+      conventionalCommitMessage: state.conventionalCommitMessage
     }),
     shallow
   )
-  const executeAction = (action: AppAction) => {
+  const executeAction = async (action: AppAction) => {
     switch (action) {
       case AppAction.EXIT:
         return exit()
       case AppAction.GO_TO_OVERVIEW:
         return setRoute(Route.OVERVIEW)
-      case AppAction.GO_TO_GIT:
-        return setRoute(Route.GIT)
-      case AppAction.GO_TO_CREATE_APP:
-        return setRoute(Route.CREATE_APP)
+      case AppAction.GO_TO_COMMIT:
+        return setRoute(Route.COMMIT)
+      case AppAction.CONVENTIONAL_COMMIT:
+        try {
+          const { stdout } = await execa('git', [
+            'commit',
+            '-m',
+            `"${conventionalCommitMessage}"`
+          ])
+          setOutput(stdout)
+        } catch (error: any) {
+          setError(error.message)
+        }
+        return setRoute(Route.OVERVIEW)
     }
   }
   useEffect(() => {
@@ -47,7 +59,11 @@ export const useExecute = () => {
         const [cmd, ...options] = executableCommand.command?.split(' ')
         if (!cmd) return
         try {
-          const { stdout } = await execa(cmd, options)
+          const { stdout } = await execa(cmd, options, {
+            detached: true,
+            buffer: false,
+            stdio: 'inherit'
+          })
           setOutput(stdout)
         } catch (error: any) {
           setError(error.message)

@@ -1,15 +1,13 @@
 export enum AppAction {
   EXIT = 'EXIT',
-  GO_TO_GIT = 'GO_TO_GIT',
   GO_TO_OVERVIEW = 'GO_TO_OVERVIEW',
-  GO_TO_CREATE_APP = 'GO_TO_CREATE_APP',
-  CREATE_APP = 'CREATE_APP'
+  GO_TO_COMMIT = 'GO_TO_COMMIT',
+  CONVENTIONAL_COMMIT = 'CONVENTIONAL_COMMIT'
 }
 
 export enum Route {
   OVERVIEW = 'OVERVIEW',
-  GIT = 'GIT',
-  CREATE_APP = 'CREATE_APP'
+  COMMIT = 'COMMIT'
 }
 
 export type Command = {

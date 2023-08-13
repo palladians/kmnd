@@ -6,6 +6,15 @@
   "engines": {
     "node": ">=20"
   },
+  "comments": {
+    "scripts": {
+      "build": "Builds the CLI with tsup.",
+      "dev": "Starts a dev server with watch to rebuild CLI.",
+      "format": "Formats all TypeScript files in repo with Prettier.",
+      "cleanup": "Deletes node_modules and dist directiories.",
+      "test:failure": "Symulates non existing command to test error output."
+    }
+  },
   "scripts": {
     "build": "tsup && chmod +x dist/cli.js",
     "dev": "tsup --watch --onSuccess \"chmod +x dist/cli.js\"",

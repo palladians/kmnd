@@ -8,16 +8,19 @@ import { shallow } from 'zustand/shallow'
 import { createAppCommands } from '../commands/create-app'
 
 export const useCommands = () => {
-  const { query, setExecutableCommand } = useAppStore(
+  const { query, setExecutableCommand, setQuery } = useAppStore(
     (state) => ({
       query: state.query,
-      setExecutableCommand: state.setExecutableCommand
+      setExecutableCommand: state.setExecutableCommand,
+      setQuery: state.setQuery
     }),
     shallow
   )
   const { scripts } = usePackageJson()
-  const commands = [...scripts, ...appCommands]
-  const allCommands = [...commands, ...gitCommands, ...createAppCommands]
+  const commands = useMemo(
+    () => [...scripts, ...gitCommands, ...createAppCommands, ...appCommands],
+    [scripts, gitCommands, createAppCommands, appCommands]
+  )
   const filteredCommands = useMemo(
     () =>
       query.length > 0
@@ -29,11 +32,12 @@ export const useCommands = () => {
   )
   const resultsCount = filteredCommands.length
   const setCommandForExecution = (value: string) => {
-    const executableCommand = allCommands.find(
+    const executableCommand = commands.find(
       (command) => command.value === value
     )
     if (!executableCommand) return
     setExecutableCommand(executableCommand)
+    setQuery('')
   }
   return {
     filteredCommands,

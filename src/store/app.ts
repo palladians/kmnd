@@ -8,6 +8,7 @@ type AppState = {
   error: string | null
   executableCommand: Command | null
   executing: boolean
+  conventionalCommitMessage: string | null
 }
 
 type AppMutators = {
@@ -17,6 +18,7 @@ type AppMutators = {
   setError: (error: string | null) => void
   setExecutableCommand: (executableCommand: Command | null) => void
   setExecuting: (executing: boolean) => void
+  setConventionalCommitMessage: (conventionalCommitMessage: string) => void
 }
 
 type AppStore = AppState & AppMutators
@@ -27,7 +29,8 @@ export const initialState = {
   output: null,
   error: null,
   executableCommand: null,
-  executing: false
+  executing: false,
+  conventionalCommitMessage: null
 }
 
 export const useAppStore = createWithEqualityFn<AppStore>()(
@@ -38,7 +41,9 @@ export const useAppStore = createWithEqualityFn<AppStore>()(
     setOutput: (output) => set({ output }),
     setError: (error) => set({ error }),
     setExecutableCommand: (executableCommand) => set({ executableCommand }),
-    setExecuting: (executing: boolean) => set({ executing })
+    setExecuting: (executing) => set({ executing }),
+    setConventionalCommitMessage: (conventionalCommitMessage) =>
+      set({ conventionalCommitMessage })
   }),
   Object.is
 )

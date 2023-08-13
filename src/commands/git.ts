@@ -1,13 +1,12 @@
 import { AppAction } from '../types'
 
 export const gitCommands = [
+  { label: '· Git → Add All', value: 'git_add_all', command: 'git add .' },
+  { label: '· Git → Status', value: 'git_status', command: 'git status' },
   {
-    label: '← Go Back',
-    value: 'kmnd_go_back',
-    action: AppAction.GO_TO_OVERVIEW
+    label: '· Git → Commit',
+    value: 'git_commit',
+    action: AppAction.GO_TO_COMMIT
   },
-  { label: '· Add All', value: 'git_add_all', command: 'git add .' },
-  { label: '· Status', value: 'git_status', command: 'git status' },
-  { label: '· Commit', value: 'git_commit', command: 'git commit' },
-  { label: '· Push', value: 'git_push', command: 'git push' }
+  { label: '· Git → Push', value: 'git_push', command: 'git push' }
 ]

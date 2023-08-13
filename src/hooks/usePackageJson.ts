@@ -20,16 +20,20 @@ export const usePackageJson = () => {
   }, [packageJsonPath, packageJsonPathLoading])
   const packageName = useMemo(() => packageJson?.['name'], [packageJson])
   const scripts =
-    useMemo(
-      () =>
-        packageJson &&
-        Object.keys(packageJson?.['scripts']).map((key) => ({
-          label: `· ${packageName} → ${key}`,
+    useMemo(() => {
+      if (!packageJson) return
+      return Object.keys(packageJson?.['scripts']).map((key) => {
+        const scriptComment = packageJson?.['comments']?.['scripts']?.[key]
+        const label = scriptComment
+          ? `· ${packageName} → ${key} → ${scriptComment}`
+          : `· ${packageName} → ${key}`
+        return {
+          label,
           value: `${packageName}_${key}`,
           command: `npm run ${key}`
-        })),
-      [packageJson]
-    ) || []
+        }
+      })
+    }, [packageJson]) || []
   return {
     scripts
   }

@@ -42,7 +42,7 @@ export const CommitRoute = () => {
       `${commitType || ''}(${commitScope || ''})${breakingChange ? '!' : ''}: ${
         commitMessage || ''
       }`,
-    []
+    [commitType, commitScope, breakingChange, commitMessage]
   )
   const handleSetCommitType = (value: string) => {
     setCommitType(value)

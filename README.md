@@ -6,7 +6,9 @@
 
 Your terminal's missing command palette.
 
-*Why?*
+![Kmnd Demo](https://github.com/palladians/kmnd/raw/main/kmnd.gif)
+
+_Why?_
 
 - You won't have to look for you app's scripts in `package.json` again. Just hit `kmnd` and select the command to run.
 - You forgot to install commitzen for conventional commits again? Don't worry, we got you covered with `Git -> Commit`.

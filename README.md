@@ -73,6 +73,14 @@ $ pnpm build
 $ pnpm test:unit
 ```
 
+## Contributors
+
+<a href="https://github.com/palladians/kmnd/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=palladians/kmnd" />
+</a>
+
+Made with [contrib.rocks](https://contrib.rocks).
+
 ## Maintained by
 
 - [Tomek Marciniak](https://github.com/mrcnk) @ [Palladians](https://github.com/palladians)

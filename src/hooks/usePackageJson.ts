@@ -13,8 +13,9 @@ export const usePackageJson = () => {
   useEffect(() => {
     const fetchPackageJson = async () => {
       if (packageJsonPathLoading) return
+      if (!packageJsonPath) return
       const data = JSON.parse((await readFileAsync(packageJsonPath)).toString())
-      setPackageJson(data)
+      setPackageJson(data as Record<string, any>)
     }
     fetchPackageJson()
   }, [packageJsonPath, packageJsonPathLoading])

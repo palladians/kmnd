@@ -40,7 +40,7 @@ export const useExecute = () => {
           const { stdout } = await execa('git', [
             'commit',
             '-m',
-            `"${conventionalCommitMessage}"`
+            conventionalCommitMessage || ''
           ])
           setOutput(stdout)
         } catch (error: any) {

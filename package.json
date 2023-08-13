@@ -1,6 +1,6 @@
 {
   "name": "kmnd",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "bin": "dist/cli.js",
   "type": "module",
   "engines": {
@@ -13,7 +13,7 @@
       "format": "Formats all TypeScript files in repo with Prettier.",
       "cleanup": "Deletes node_modules and dist directiories.",
       "test:unit": "Run unit tests",
-      "test:failure": "Symulates non existing command to test error output."
+      "test:failure": "Simulates non existing command to test error output."
     }
   },
   "scripts": {

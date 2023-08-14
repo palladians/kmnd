@@ -88,6 +88,10 @@ Made with [contrib.rocks](https://contrib.rocks).
 
 - [Tomek Marciniak](https://github.com/mrcnk) @ [Palladians](https://github.com/palladians)
 
+## Alternatives
+
+- [ntl](https://www.npmjs.com/package/ntl)
+
 ## Acknowledgements
 
 - Shout out to [Vadim Demedes](https://github.com/vadimdemedes) for creating `ink` and `ink-ui`.
